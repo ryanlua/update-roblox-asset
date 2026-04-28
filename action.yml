@@ -1,0 +1,28 @@
+name: Update Roblox Asset
+description: Update assets on Roblox using Open Cloud API keys.
+author: Ryan Luu
+
+branding:
+  icon: upload-cloud
+  color: blue
+
+inputs:
+  api-key:
+    description: "API key for Open Cloud"
+    required: true
+  asset-id:
+    description: "Existing asset on Roblox"
+    required: true
+  file:
+    description: "File path to the asset"
+    required: true
+  display-name:
+    description: "Display name for the asset"
+    required: false
+  description:
+    description: "Description for the asset"
+    required: false
+
+outputs:
+  operation-id:
+    description: "Operation ID for checking the update status"
