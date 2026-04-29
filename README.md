@@ -2,6 +2,8 @@
 
 GitHub Action for updating assets on Roblox.
 
+Uses Open Cloud to update the asset on Roblox and then polls operation status for the result.
+
 ## Usage
 
 ```yaml
