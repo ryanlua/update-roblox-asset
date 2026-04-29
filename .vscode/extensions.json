@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "bierner.markdown-preview-github-styles",
+    "davidanson.vscode-markdownlint",
+    "github.vscode-github-actions",
+    "redhat.vscode-yaml",
+    "esbenp.prettier-vscode",
+    "yzhang.markdown-all-in-one"
+  ]
+}
