@@ -26,3 +26,26 @@ inputs:
 outputs:
   operation-id:
     description: "Operation ID for checking the update status"
+    value: ${{ steps.upload.outputs.operation-id }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: upload
+      shell: bash
+      env:
+        API_KEY: ${{ inputs.api-key }}
+        ASSET_ID: ${{ inputs.asset-id }}
+        FILE_PATH: ${{ inputs.file }}
+        DISPLAY_NAME: ${{ inputs.display-name }}
+        DESCRIPTION: ${{ inputs.description }}
+      run: |
+        bash "${{ github.action_path }}/scripts/upload.sh"
+
+    - id: poll
+      shell: bash
+      env:
+        API_KEY: ${{ inputs.api-key }}
+        OPERATION_ID: ${{ steps.upload.outputs.operation-id }}
+      run: |
+        bash "${{ github.action_path }}/scripts/poll.sh"
