@@ -2,7 +2,7 @@
 
 GitHub Action for updating assets on Roblox.
 
-Uses Open Cloud to update the asset on Roblox and then polls operation status for the result.
+Uses [Open Cloud](https://create.roblox.com/docs/cloud) to update the asset on Roblox and then polls the operation status for the result.
 
 ## Usage
 
