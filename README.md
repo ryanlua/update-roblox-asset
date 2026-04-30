@@ -7,7 +7,7 @@ Uses [Open Cloud](https://create.roblox.com/docs/cloud) to update the asset on R
 ## Usage
 
 ```yaml
-- uses: ryanlua/update-roblox-asset@v1
+- uses: ryanlua/update-roblox-asset@v0.1.0
   with:
     api-key: ${{ secrets.OPEN_CLOUD_API_KEY }}
     asset-id: 13947506401
