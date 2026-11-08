@@ -24,8 +24,21 @@ request_payload="$(jq -nc \
     + (if $description != "" then {description: $description} else {} end)
   )')"
 
+update_mask=""
+if [[ -n "$display_name" ]]; then
+  update_mask="displayName"
+fi
+if [[ -n "$description" ]]; then
+  update_mask="${update_mask:+${update_mask}%2C}description"
+fi
+
+upload_url="https://apis.roblox.com/assets/v1/assets/${ASSET_ID}"
+if [[ -n "$update_mask" ]]; then
+  upload_url="${upload_url}?updateMask=${update_mask}"
+fi
+
 upload_response="$(curl --silent --show-error --location --request PATCH \
-  "https://apis.roblox.com/assets/v1/assets/${ASSET_ID}" \
+  "$upload_url" \
   --header "x-api-key: ${API_KEY}" \
   --form-string "request=${request_payload}" \
   --form "fileContent=@${FILE_PATH};type=model/x-rbxm")"
